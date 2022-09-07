@@ -7,7 +7,7 @@
 <h2>The tech stack is:</h2>
 
 <ul>
-    <li>HTML</li>
+    <li>HTML5</li>
     <li>CSS3</li>
     <li>JS</li>
     <li>Flexbox</li>
