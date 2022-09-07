@@ -1,7 +1,22 @@
-## Calendar start code
+<h1>Google calendar</h1>
 
-### To start:
+<h2><a href="https://kluy.github.io/google-calendar/index.html">Site link</a></h2>
 
-1. clone the repo
-2. install LTS [NodeJS](https://nodejs.org/en/)
-3. run `npm install` to to use eslint in the project
+<p>Layout supports desktop (up-to-1440) versions</p>
+
+<h2>The tech stack is:</h2>
+
+<ul>
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>JS</li>
+    <li>Flexbox</li>
+    <li>Sass (Scss)</li>
+    <li>BEM methodology</li>
+</ul>
+
+<h2>Author</h2>
+
+<ul>
+    <li>Andrii Kliui</li>
+</ul>
