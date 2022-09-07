@@ -1,6 +1,6 @@
 <h1>Google calendar</h1>
 
-<h2><a href="https://kluy.github.io/google-calendar/index.html">Site link</a></h2>
+<h2><a href="https://kluy.github.io/google-calendar">Site link</a></h2>
 
 <p>Layout supports desktop (up-to-1440) versions</p>
 
