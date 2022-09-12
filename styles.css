@@ -81,6 +81,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center; }
+.calendar__week {
+  display: flex; }
 
 .day-of-week {
   font-size: 8px; }
