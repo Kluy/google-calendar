@@ -13,24 +13,24 @@ function renderCurrentMonth() {
   // отрисовать месяц, к которому относиться текущая неделя (getDisplayedMonth)
   // вставить в .navigation__displayed-month
   // setItem('displayedWeekStart', getStartOfWeek(new Date()));
-  displayedMonthElem.textContent = getDisplayedMonth(getItem('displayedWeekStart'));
+  displayedMonthElem.textContent = getDisplayedMonth(
+    getItem('displayedWeekStart')
+  );
 }
 
 const onChangeWeek = (event) => {
   // при переключении недели обновите displayedWeekStart в storage
   // и перерисуйте все необходимые элементы страницы (renderHeader, renderWeek, renderCurrentMonth)
   const direction = event.target.dataset.direction;
-  console.log(getItem('displayedWeekStart').getTime());
-  console.log(getItem('displayedWeekStart'));
+  console.log(event.target.dataset.direction);
   let date;
-  if(direction === 'next'){
+  if (direction === 'next') {
     date = getItem('displayedWeekStart').getTime() + 604800000;
   } else if (direction === 'prev') {
     date = getItem('displayedWeekStart').getTime() - 604800000;
-  } else if (direction === 'today'){
+  } else if (direction === 'today') {
     date = new Date();
-
-  }
+  } else return;
   setItem('displayedWeekStart', getStartOfWeek(new Date(date)));
   renderHeader();
   renderWeek();

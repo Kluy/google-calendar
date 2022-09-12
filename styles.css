@@ -71,6 +71,30 @@ button {
   border: 1px solid #dcdcdc;
   margin-left: 27px; }
 
+.calendar__header {
+  display: flex;
+  height: 84px;
+  align-items: center; }
+.calendar__day {
+  width: 150px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.day-of-week {
+  font-size: 8px; }
+
+.date {
+  background-color: #1a73e8;
+  font-size: 24px;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  vertical-align: middle;
+  border-radius: 100%;
+  margin-top: 5px; }
+
 * {
   box-sizing: border-box; }
 

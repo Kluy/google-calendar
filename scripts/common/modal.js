@@ -5,12 +5,11 @@ const modalContentElem = document.querySelector('.modal__content');
 // модальное окно работает похожим на попап образом
 // отличие в том, что попап отображается в месте клика, а модальное окно - по центру экрана
 
-export function openModal () {
-    console.log(modalElem.classList);
-    modalElem.classList.toggle('hidden');
-
+export function openModal() {
+  // console.log(modalElem.classList);
+  modalElem.classList.toggle('hidden');
 }
 
-export function closeModal () {
-    modalElem.classList.toggle('hidden');
+export function closeModal() {
+  modalElem.classList.toggle('hidden');
 }

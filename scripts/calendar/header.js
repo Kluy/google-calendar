@@ -13,14 +13,16 @@ export const renderHeader = () => {
 
   const weekStart = getItem('displayedWeekStart');
   // console.log(weekStart);
-  const arr = generateWeekRange(weekStart);
-  const arrLayout = arr.map((elem) => {
-    return elem = `<div><div>${daysOfWeek[elem.getDay()]}</div><div>${elem.getDate()}</div></div>`
-  }).join('');
+  const headerOfWeek = generateWeekRange(weekStart)
+    .map((elem) => {
+      return (elem = `<div class='calendar__day'><div class='day-of-week'>${
+        daysOfWeek[elem.getDay()]
+      }</div><div class='date'>${elem.getDate()}</div></div>`);
+    })
+    .join('');
   // console.log(arrLayout);
 
-  calendarHeader.innerHTML = arrLayout;
-  
+  calendarHeader.innerHTML = headerOfWeek;
 };
 
 // при клике на кнопку "Create" открыть модальное окно с формой для создания события
