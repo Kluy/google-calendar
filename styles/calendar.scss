@@ -1,1 +1,6 @@
 // стили сетки календаря и заголовка календаря с днями недели
+.calendar__day{
+    border: 1px solid gray;
+    width: 100px;
+    height: 20px;
+}
