@@ -10,19 +10,11 @@ const generateDay = () => {
   // разметка состоит из 24 часовых временных слотов (.calendar__time-slot)
   return createNumbersArray(1, 24)
     .map((elem) => {
-      elem = `<div class='calendar__time-slot' data-id='${elem}'></div>`;
+      elem = `<div class='calendar__time-slot' data-hour='${elem}'></div>`;
       return elem;
     })
     .join('');
-  return createNumbersArray(1,24).map((elem) => {
-    elem = `<div class='calendar__time-slot' data-id='${elem}'></div>`;
-    return elem;
-  }).join('');
 };
-
-// console.log(generateDay());
-
-console.log(generateDay());
 
 export const renderWeek = () => {
   // функция должна сгенерировать разметку недели в виде строки и вставить ее на страницу (в .calendar__week)
@@ -38,26 +30,9 @@ export const renderWeek = () => {
   const arr = generateWeekRange(getItem('displayedWeekStart'));
   const arrLayout = arr
     .map((elem) => {
-      return (elem = `<div><div class='calendar__day' style='border: 1px solid gray;
-    width: 100px;
-    height: 20px;' data-id='${elem.getDate()}'>
-    ${generateDay()}
-    </div></div>`);
+      return (elem = `<div class='calendar__day' data-day='${elem.getDate()}'>${generateDay()}</div>`);
     })
     .join('');
 
   calendarWeek.innerHTML = arrLayout;
-
-  const arr = generateWeekRange(getItem('displayedWeekStart'));
-  const arrLayout = arr.map((elem) => {
-    return elem = `<div><div class='calendar__day' style='border: 1px solid gray;
-    width: 100px;
-    height: 20px;' data-id='${elem.getDate()}'>
-    ${generateDay()}
-    </div></div>`
-  }).join('');
-
-  calendarWeek.innerHTML = arrLayout;
-
 };
->>>>>>> 8f16c62dee6bf1eadc5377ba830c2bcf69752bc1

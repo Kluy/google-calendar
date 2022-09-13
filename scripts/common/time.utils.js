@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import shmoment from './shmoment.js';
 
 // вернет дату понедельника той недели, в которую входит переданный день
@@ -63,4 +62,3 @@ export const getDisplayedMonth = (date) => {
     ? `${monthsNames[startMonth]} - ${monthsNames[endMonth]} ${startYear}`
     : `${monthsNames[startMonth]} ${startYear} - ${monthsNames[endMonth]} ${endYear}`;
 };
->>>>>>> 8f16c62dee6bf1eadc5377ba830c2bcf69752bc1

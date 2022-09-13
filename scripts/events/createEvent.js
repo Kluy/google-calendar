@@ -8,10 +8,17 @@ const closeEventFormBtn = document.querySelector('.create-event__close-btn');
 
 function clearEventForm() {
   // ф-ция должна очистить поля формы от значений
+  eventFormElem.children.description.value = '';
+  eventFormElem.children.title.value = '';
+  eventFormElem.children[1].children.date.value = '';
+  eventFormElem.children[1].children.endTime.value = '';
+  eventFormElem.children[1].children.startTime.value = '';
 }
 
 function onCloseEventForm() {
   // здесь нужно закрыть модальное окно и очистить форму
+  clearEventForm();
+  closeModal();
 }
 
 function onCreateEvent(event) {
@@ -24,8 +31,36 @@ function onCreateEvent(event) {
   // полученное событие добавляем в массив событий, что хранится в storage
   // закрываем форму
   // и запускаем перерисовку событий с помощью renderEvents
+  event.preventDefault();
+
+  const events = getItem('events');
+  const newEvent = {
+    id: Math.random(), // id понадобится для работы с событиями
+  };
+
+  if(event.target.type === 'submit'){
+    newEvent.title = eventFormElem.children.title.value;
+    newEvent.description = eventFormElem.children.description.value;
+    newEvent.date = eventFormElem.children[1].children.date.value;
+    newEvent.endTime = eventFormElem.children[1].children.endTime.value;
+    newEvent.startTime = eventFormElem.children[1].children.startTime.value;
+    events.push(newEvent);
+    setItem('events', events);
+  }
+
+  // const eventExample = {
+  //   id: 0.7520027086457333, // id понадобится для работы с событиями
+  //   title: 'Title',
+  //   description: 'Some description',
+  //   start: new Date('2020-03-17T01:10:00.000Z'),
+  //   end: new Date('2020-03-17T04:30:00.000Z'),
+  // };
+
+  renderEvents();
 }
 
 export function initEventForm() {
   // подпишитесь на сабмит формы и на закрытие формы
+  eventFormElem.addEventListener('click', onCreateEvent);
+  closeEventFormBtn.addEventListener('click', onCloseEventForm);
 }

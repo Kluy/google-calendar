@@ -5,29 +5,53 @@
     height: 84px;
     align-items: center;
   }
-  &__day {
+  &__week-container{
+    display: flex;
+  }
+  &__gmt{
+    width: 50px;
+    font-size: 10px;
+    text-align: right;
+    padding-right: 12px;
+    align-self: end;
+  }
+  &__day-start {
     width: 150px;
+    height: 60px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  &__day-name {
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  &__date {
+    // background-color: #1a73e8;
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    vertical-align: middle;
+    border-radius: 100%;
+    margin-top: 5px;
+  }
   &__week {
     display: flex;
   }
+  &__day:last-child{
+    border-right: 1px solid $grey;
+
+  }
+  &__time-slot{
+    width: 150px;
+    height: 30px;
+    border-top: 1px solid $grey;
+    border-left: 1px solid $grey;
+    &:last-child{
+        border-bottom: 1px solid $grey;
+    }
+  }
 }
 
-.day-of-week {
-  font-size: 8px;
-}
-.date {
-  background-color: #1a73e8;
-  font-size: 24px;
-  //   color: #70757b;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
-  vertical-align: middle;
-  border-radius: 100%;
-  margin-top: 5px;
-}
