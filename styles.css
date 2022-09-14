@@ -3,14 +3,12 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  position: relative;
-}
+  position: relative; }
 
 .header {
   display: flex;
   padding: 15px 0 6px 27px;
-  border-bottom: 1px solid #dadce0;
-}
+  border-bottom: 1px solid #dadce0; }
 
 .button {
   height: 40px;
@@ -19,28 +17,24 @@
   outline: none;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 500;
-}
+  font-weight: 500; }
 
 .icon-button {
   outline: none;
   border: none;
   cursor: pointer;
-  background: transparent;
-}
+  background: transparent; }
 
 .modal {
   position: fixed;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-.modal__content {
-  background: #fff;
-  padding: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
+  align-items: center; }
+  .modal__content {
+    background: #fff;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px; }
 
 .overlay {
   position: fixed;
@@ -48,69 +42,59 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(204, 204, 204, 0.2705882353);
-  z-index: 10;
-}
+  background-color: #cccccc45;
+  z-index: 10; }
 
 .popup__content {
   position: absolute;
   background: #fff;
   padding: 16px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-}
+  border-radius: 8px; }
 
 .hidden {
-  display: none;
-}
+  display: none; }
 
 button {
   background-color: white;
-  padding: 0 25px;
-}
+  padding: 0 25px; }
 
 .create-event-btn {
   height: 37px;
   border-radius: 25px;
-  box-shadow: 0px 2px 2px #a9a9a9;
-}
-.create-event-btn__icon {
-  padding-right: 12px;
-}
+  box-shadow: 0px 2px 2px #a9a9a9; }
+  .create-event-btn__icon {
+    padding-right: 12px; }
 
 .navigation__today-btn {
   height: 34px;
   border: 1px solid #dcdcdc;
-  margin-left: 27px;
-}
+  margin-left: 27px; }
 
 .calendar__header {
   display: flex;
   height: 84px;
-  align-items: center;
-}
+  align-items: center; }
 .calendar__week-container {
-  display: flex;
-}
+  overflow: auto;
+  height: 90vh;
+  display: flex; }
 .calendar__gmt {
-  width: 50px;
+  width: 70px;
   font-size: 10px;
   text-align: right;
-  padding-right: 12px;
-  align-self: end;
-}
+  padding-right: 11px;
+  align-self: end; }
 .calendar__day-start {
-  width: 150px;
+  width: 180px;
   height: 60px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; }
 .calendar__day-name {
   font-size: 11px;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 .calendar__date {
   font-size: 24px;
   width: 45px;
@@ -118,41 +102,69 @@ button {
   line-height: 45px;
   vertical-align: middle;
   border-radius: 100%;
-  margin-top: 5px;
-}
+  margin-top: 5px; }
 .calendar__week {
-  display: flex;
-}
+  display: flex; }
 .calendar__day:last-child {
-  border-right: 1px solid #dadce0;
-}
+  border-right: 1px solid #dadce0; }
 .calendar__time-slot {
-  width: 150px;
-  height: 30px;
+  width: 180px;
+  height: 60px;
   border-top: 1px solid #dadce0;
-  border-left: 1px solid #dadce0;
-}
-.calendar__time-slot:last-child {
-  border-bottom: 1px solid #dadce0;
-}
+  border-left: 1px solid #dadce0; }
+  .calendar__time-slot:last-child {
+    border-bottom: 1px solid #dadce0; }
 
 .time-scale {
-  width: 50px;
-  height: 30px;
-  line-height: 60px;
+  width: 70px;
+  height: 60px;
+  line-height: 120px;
   font-size: 10px;
   text-align: right;
-  padding-right: 12px;
-}
+  padding-right: 17px; }
+
+.modal-content {
+  width: 450px;
+  height: 400px; }
+
+.event-form__submit-btn {
+  border: 0;
+  width: 125px;
+  height: 35px;
+  background-color: #1a73e8;
+  border-radius: 7px;
+  color: white;
+  float: right; }
+.event-form__field {
+  border: 0; }
+
+.create-event__close-btn {
+  border: 0;
+  transform: rotate(45deg);
+  font-size: 28px;
+  padding: 0;
+  margin-left: 430px;
+  margin-bottom: 14px; }
+
+input[type='text'] {
+  font-size: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+  border-bottom: 2px solid #1a73e8; }
+
+textarea {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 200px;
+  width: 100%;
+  resize: none; }
 
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
   color: #70757a;
   font-size: 18px;
-  font-family: "Roboto", sans-serif;
-}
+  font-family: 'Roboto', sans-serif; }
 
 /*# sourceMappingURL=styles.css.map */

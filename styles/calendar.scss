@@ -5,18 +5,20 @@
     height: 84px;
     align-items: center;
   }
-  &__week-container{
+  &__week-container {
+    overflow: auto;
+    height: 90vh;
     display: flex;
   }
-  &__gmt{
-    width: 50px;
+  &__gmt {
+    width: 70px;
     font-size: 10px;
     text-align: right;
-    padding-right: 12px;
+    padding-right: 11px;
     align-self: end;
   }
   &__day-start {
-    width: 150px;
+    width: 180px;
     height: 60px;
     text-align: center;
     display: flex;
@@ -40,18 +42,16 @@
   &__week {
     display: flex;
   }
-  &__day:last-child{
+  &__day:last-child {
     border-right: 1px solid $grey;
-
   }
-  &__time-slot{
-    width: 150px;
-    height: 30px;
+  &__time-slot {
+    width: 180px;
+    height: 60px;
     border-top: 1px solid $grey;
     border-left: 1px solid $grey;
-    &:last-child{
-        border-bottom: 1px solid $grey;
+    &:last-child {
+      border-bottom: 1px solid $grey;
     }
   }
 }
-

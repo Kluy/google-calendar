@@ -12,6 +12,7 @@ function handleEventClick(event) {
 
 function removeEventsFromCalendar() {
   // ф-ция для удаления всех событий с календаря
+  setItem('events', []);
 }
 
 const createEventElement = (event) => {
@@ -19,6 +20,17 @@ const createEventElement = (event) => {
   // событие должно позиционироваться абсолютно внутри нужной ячейки времени внутри дня
   // нужно добавить id события в дата атрибут
   // здесь для создания DOM элемента события используйте document.createElement
+  const newEvent = `<div class='event' id='${event.id}'>
+  <div class='event__title'>${event.title}</div>
+  <div class='event__time'>${event.start.getHours()}:${String(
+    event.start.getMinutes().toString()
+  ).padStart(2, 0)} - ${event.end.getHours()}:${String(
+    event.end.getMinutes()
+  ).padStart(2, 0)}</div>
+  <div class='event__description'>${event.description}</div>
+  </div>`;
+
+  // document.createElement(newEvent);
 };
 
 export const renderEvents = () => {
@@ -29,6 +41,28 @@ export const renderEvents = () => {
   // и вставляем туда событие
   // каждый день и временная ячейка должно содержать дата атрибуты, по которым можно будет найти нужную временную ячейку для события
   // не забудьте удалить с календаря старые события перед добавлением новых
+  const events = getItem('events');
+  const monday = getItem('displayedWeekStart');
+  const arr = events.filter(
+    (elem) =>
+      elem.start >= monday &&
+      elem.start < shmoment(monday).add('days', 7).result()
+  );
+
+  arr.forEach((elem) => {
+    const day = document.querySelector(`[data-day="${elem.start.getDate()}"]`);
+    console.log(day);
+    createEventElement(elem);
+  });
+  // console.log(
+  //   `${elem.start.getHours()}:${String(
+  //     elem.start.getMinutes().toString()
+  //   ).padStart(2, 0)} - ${elem.end.getHours()}:${String(
+  //     elem.end.getMinutes()
+  //   ).padStart(2, 0)}`
+  // );
+  console.log('dddddd');
+  console.log(arr);
 };
 
 function onDeleteEvent() {
@@ -36,6 +70,7 @@ function onDeleteEvent() {
   // удаляем из массива нужное событие и записываем в storage новый массив
   // закрыть попап
   // перерисовать события на странице в соответствии с новым списком событий в storage (renderEvents)
+  renderEvents();
 }
 
 deleteEventBtn.addEventListener('click', onDeleteEvent);

@@ -1,1 +1,40 @@
 // стили формы события внутри модального окна
+.modal-content {
+  width: 450px;
+  height: 400px;
+}
+.event-form {
+  &__submit-btn {
+    border: 0;
+    width: 125px;
+    height: 35px;
+    background-color: #1a73e8;
+    border-radius: 7px;
+    color: white;
+    float: right;
+  }
+  &__field {
+    border: 0;
+  }
+}
+.create-event__close-btn {
+  border: 0;
+  transform: rotate(45deg);
+  font-size: 28px;
+  padding: 0;
+  margin-left: 430px;
+  margin-bottom: 14px;
+}
+input[type='text'] {
+  font-size: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+  border-bottom: 2px solid #1a73e8;
+}
+textarea {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 200px;
+  width: 100%;
+  resize: none;
+}

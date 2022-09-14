@@ -8,11 +8,12 @@ const closeEventFormBtn = document.querySelector('.create-event__close-btn');
 
 function clearEventForm() {
   // ф-ция должна очистить поля формы от значений
+
   eventFormElem.children.description.value = '';
   eventFormElem.children.title.value = '';
   eventFormElem.children[1].children.date.value = '';
-  eventFormElem.children[1].children.endTime.value = '';
-  eventFormElem.children[1].children.startTime.value = '';
+  eventFormElem.children[1].children.end.value = '';
+  eventFormElem.children[1].children.start.value = '';
 }
 
 function onCloseEventForm() {
@@ -38,25 +39,24 @@ function onCreateEvent(event) {
     id: Math.random(), // id понадобится для работы с событиями
   };
 
-  if(event.target.type === 'submit'){
-    newEvent.title = eventFormElem.children.title.value;
-    newEvent.description = eventFormElem.children.description.value;
-    newEvent.date = eventFormElem.children[1].children.date.value;
-    newEvent.endTime = eventFormElem.children[1].children.endTime.value;
-    newEvent.startTime = eventFormElem.children[1].children.startTime.value;
+  const formData = [...new FormData(eventFormElem)];
+
+  formData.forEach((elem) => {
+    newEvent[elem[0]] = elem[1];
+  });
+
+  newEvent.start = new Date(newEvent.date.split('-').concat(newEvent.start));
+
+  newEvent.end = new Date(newEvent.date.split('-').concat(newEvent.end));
+
+  delete newEvent.date;
+
+  if (event.target.type === 'submit') {
     events.push(newEvent);
     setItem('events', events);
+    onCloseEventForm();
+    renderEvents();
   }
-
-  // const eventExample = {
-  //   id: 0.7520027086457333, // id понадобится для работы с событиями
-  //   title: 'Title',
-  //   description: 'Some description',
-  //   start: new Date('2020-03-17T01:10:00.000Z'),
-  //   end: new Date('2020-03-17T04:30:00.000Z'),
-  // };
-
-  renderEvents();
 }
 
 export function initEventForm() {
