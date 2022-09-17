@@ -9,11 +9,11 @@ const closeEventFormBtn = document.querySelector('.create-event__close-btn');
 function clearEventForm() {
   // ф-ция должна очистить поля формы от значений
 
-  eventFormElem.children.description.value = '';
-  eventFormElem.children.title.value = '';
-  eventFormElem.children[1].children.date.value = '';
-  eventFormElem.children[1].children.end.value = '';
-  eventFormElem.children[1].children.start.value = '';
+  // eventFormElem.children.description.value = '';
+  // eventFormElem.children.title.value = '';
+  // eventFormElem.children[1].children.date.value = '';
+  // eventFormElem.children[1].children.end.value = '';
+  // eventFormElem.children[1].children.start.value = '';
 }
 
 function onCloseEventForm() {

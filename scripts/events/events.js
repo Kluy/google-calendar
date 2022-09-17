@@ -20,17 +20,19 @@ const createEventElement = (event) => {
   // событие должно позиционироваться абсолютно внутри нужной ячейки времени внутри дня
   // нужно добавить id события в дата атрибут
   // здесь для создания DOM элемента события используйте document.createElement
-  const newEvent = `<div class='event' id='${event.id}'>
-  <div class='event__title'>${event.title}</div>
+  const newEvent = document.createElement('div');
+  console.log(newEvent);
+  newEvent.classList.add('event');
+  newEvent.id = `${event.id}`;
+  newEvent.innerHTML = 
+  `<div class='event__title'>${event.title}</div>
   <div class='event__time'>${event.start.getHours()}:${String(
     event.start.getMinutes().toString()
   ).padStart(2, 0)} - ${event.end.getHours()}:${String(
     event.end.getMinutes()
   ).padStart(2, 0)}</div>
-  <div class='event__description'>${event.description}</div>
-  </div>`;
-
-  // document.createElement(newEvent);
+  <div class='event__description'>${event.description}</div>`;
+  return newEvent;
 };
 
 export const renderEvents = () => {
@@ -51,18 +53,9 @@ export const renderEvents = () => {
 
   arr.forEach((elem) => {
     const day = document.querySelector(`[data-day="${elem.start.getDate()}"]`);
-    console.log(day);
-    createEventElement(elem);
+    const timeSlot = day.children[elem.start.getHours()];
+    timeSlot.append(createEventElement(elem));
   });
-  // console.log(
-  //   `${elem.start.getHours()}:${String(
-  //     elem.start.getMinutes().toString()
-  //   ).padStart(2, 0)} - ${elem.end.getHours()}:${String(
-  //     elem.end.getMinutes()
-  //   ).padStart(2, 0)}`
-  // );
-  console.log('dddddd');
-  console.log(arr);
 };
 
 function onDeleteEvent() {
