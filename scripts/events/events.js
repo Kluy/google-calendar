@@ -21,7 +21,6 @@ const createEventElement = (event) => {
   // нужно добавить id события в дата атрибут
   // здесь для создания DOM элемента события используйте document.createElement
   const newEvent = document.createElement('div');
-  console.log(newEvent);
   newEvent.classList.add('event');
   newEvent.id = `${event.id}`;
   newEvent.innerHTML = 
@@ -54,7 +53,7 @@ export const renderEvents = () => {
   arr.forEach((elem) => {
     const day = document.querySelector(`[data-day="${elem.start.getDate()}"]`);
     const timeSlot = day.children[elem.start.getHours()];
-    timeSlot.append(createEventElement(elem));
+    timeSlot.innerHTML = createEventElement(elem).outerHTML;
   });
 };
 
