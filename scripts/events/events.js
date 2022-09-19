@@ -8,10 +8,17 @@ const deleteEventBtn = document.querySelector('.delete-event-btn');
 function handleEventClick(event) {
   // если произошел клик по событию, то нужно паказать попап с кнопкой удаления
   // установите eventIdToDelete с id события в storage
+  if (event.target.className === 'event') {
+    openPopup(event.x, event.y);
+    setItem('eventIdToDelete', event.target.id);
+  }
 }
 
 function removeEventsFromCalendar() {
   // ф-ция для удаления всех событий с календаря
+  const oldEvents = document.querySelectorAll('.event');
+  oldEvents.forEach((elem) => (elem.outerHTML = ''));
+  console.log(oldEvents.forEach((elem) => (elem.outerHTML = '')));
   setItem('events', []);
 }
 
@@ -23,14 +30,14 @@ const createEventElement = (event) => {
   const newEvent = document.createElement('div');
   newEvent.classList.add('event');
   newEvent.id = `${event.id}`;
-  newEvent.innerHTML = 
-  `<div class='event__title'>${event.title}</div>
+  newEvent.innerHTML = `<div class='event__title'>${event.title}</div>
   <div class='event__time'>${event.start.getHours()}:${String(
     event.start.getMinutes().toString()
   ).padStart(2, 0)} - ${event.end.getHours()}:${String(
     event.end.getMinutes()
   ).padStart(2, 0)}</div>
   <div class='event__description'>${event.description}</div>`;
+  newEvent.style.top = `${event.start.getMinutes()}px`;
   return newEvent;
 };
 
@@ -42,7 +49,12 @@ export const renderEvents = () => {
   // и вставляем туда событие
   // каждый день и временная ячейка должно содержать дата атрибуты, по которым можно будет найти нужную временную ячейку для события
   // не забудьте удалить с календаря старые события перед добавлением новых
+
   const events = getItem('events');
+  // console.log(events);
+  const oldEvents = document.querySelectorAll('.event');
+  // console.log(oldEvents);
+  removeEventsFromCalendar();
   const monday = getItem('displayedWeekStart');
   const arr = events.filter(
     (elem) =>
@@ -62,6 +74,14 @@ function onDeleteEvent() {
   // удаляем из массива нужное событие и записываем в storage новый массив
   // закрыть попап
   // перерисовать события на странице в соответствии с новым списком событий в storage (renderEvents)
+  const events = getItem('events');
+  const id = getItem('eventIdToDelete');
+  events.splice(
+    events.findIndex((elem) => elem.id.toString() === id),
+    1
+  );
+  setItem('events', events);
+  closePopup();
   renderEvents();
 }
 

@@ -19,8 +19,12 @@ export const renderHeader = () => {
       }</div><div class='calendar__date'>${elem.getDate()}</div></div>`);
     })
     .join('');
-  // console.log(arrLayout);
-  const gmt = `<div class='calendar__gmt'>GMT+${(weekStart.getTimezoneOffset() / 60 * -1).toString().padStart(2,0)}</div>`;
+  const gmt = `<div class='calendar__gmt'>GMT+${(
+    (weekStart.getTimezoneOffset() / 60) *
+    -1
+  )
+    .toString()
+    .padStart(2, 0)}</div>`;
 
   calendarHeader.innerHTML = gmt + weekHeader;
 };

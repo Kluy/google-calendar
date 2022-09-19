@@ -111,7 +111,8 @@ button {
   width: 180px;
   height: 60px;
   border-top: 1px solid #dadce0;
-  border-left: 1px solid #dadce0; }
+  border-left: 1px solid #dadce0;
+  position: relative; }
   .calendar__time-slot:last-child {
     border-bottom: 1px solid #dadce0; }
 
@@ -158,6 +159,18 @@ textarea {
   height: 200px;
   width: 100%;
   resize: none; }
+
+.event {
+  background-color: #c6dafc;
+  width: 160px;
+  color: #727e90;
+  border-radius: 7px;
+  padding: 9px;
+  font-size: 15px;
+  position: absolute;
+  z-index: 8; }
+  .event__time {
+    padding: 8px 0; }
 
 * {
   box-sizing: border-box; }
