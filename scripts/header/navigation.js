@@ -2,6 +2,7 @@ import { getItem, setItem } from '../common/storage.js';
 import { renderWeek } from '../calendar/calendar.js';
 import { renderHeader } from '../calendar/header.js';
 import { getStartOfWeek, getDisplayedMonth } from '../common/time.utils.js';
+import shmoment from '../common/shmoment.js';
 
 const navElem = document.querySelector('.navigation');
 
@@ -24,13 +25,15 @@ const onChangeWeek = (event) => {
   // при переключении недели обновите displayedWeekStart в storage
   // и перерисуйте все необходимые элементы страницы (renderHeader, renderWeek, renderCurrentMonth)
   const direction = event.target.dataset.direction;
-  console.log(getItem('displayedWeekStart').getTime());
-  console.log(getItem('displayedWeekStart'));
   let date;
   if (direction === 'next') {
-    date = getItem('displayedWeekStart').getTime() + 604800000;
+    date = shmoment(getItem('displayedWeekStart').getTime())
+      .add('days', 7)
+      .result();
   } else if (direction === 'prev') {
-    date = getItem('displayedWeekStart').getTime() - 604800000;
+    date = shmoment(getItem('displayedWeekStart').getTime())
+      .subtract('days', 7)
+      .result();
   } else if (direction === 'today') {
     date = new Date();
   }
