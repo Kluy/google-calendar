@@ -2,6 +2,7 @@ import { getItem, setItem } from '../common/storage.js';
 import { renderWeek } from '../calendar/calendar.js';
 import { renderHeader } from '../calendar/header.js';
 import { getStartOfWeek, getDisplayedMonth } from '../common/time.utils.js';
+import { renderEvents } from '../events/events.js';
 import shmoment from '../common/shmoment.js';
 
 const navElem = document.querySelector('.navigation');
@@ -41,6 +42,7 @@ const onChangeWeek = (event) => {
   renderHeader();
   renderWeek();
   renderCurrentMonth();
+  renderEvents();
 };
 
 export const initNavigation = () => {
