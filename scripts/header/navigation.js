@@ -13,7 +13,6 @@ function renderCurrentMonth() {
   // отрисовать месяц, к которому относиться текущая неделя (getDisplayedMonth)
   // вставить в .navigation__displayed-month
   displayedMonthElem.textContent = getDisplayedMonth(getItem('displayedWeekStart'));
-  displayedMonthElem.textContent = getDisplayedMonth(getItem('displayedWeekStart'));
 }
 
 const onChangeWeek = event => {
