@@ -26,6 +26,8 @@ const onChangeWeek = event => {
     date = shmoment(getItem('displayedWeekStart').getTime()).subtract('days', 7).result();
   } else if (direction === 'today') {
     date = new Date();
+  } else {
+    return;
   }
   setItem('displayedWeekStart', getStartOfWeek(new Date(date)));
   renderHeader();

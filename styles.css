@@ -22,9 +22,10 @@
 }
 
 .icon-button {
+  margin: 0 25px;
+  padding: 2px;
   border: none;
   cursor: pointer;
-  background: transparent;
 }
 
 .modal {

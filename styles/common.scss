@@ -7,9 +7,10 @@
   border: 1px solid $alsoWhite;
 }
 .icon-button {
+  margin: 0 25px;
+  padding: 2px;
   border: none;
   cursor: pointer;
-  background: transparent;
 }
 .modal {
   display: flex;
