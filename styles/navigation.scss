@@ -1,7 +1,7 @@
 // стили навигации
 button {
-  background-color: white;
   padding: 0 25px;
+  background-color: $white;
 }
 .create-event-btn {
   height: 37px;
@@ -12,7 +12,7 @@ button {
   }
 }
 .navigation__today-btn {
+  margin-left: 27px;
   height: 34px;
   border: 1px solid #dcdcdc;
-  margin-left: 27px;
 }

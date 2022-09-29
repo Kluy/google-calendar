@@ -13,7 +13,7 @@ export const setItem = (key, value) => {
   storage[key] = value;
 };
 
-export const getItem = (key) => {
+export const getItem = key => {
   // ф-ция должна возвращать по ключу значения из объекта storage
   return storage[key];
 };

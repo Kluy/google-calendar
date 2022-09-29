@@ -17,10 +17,10 @@ function handleEventClick(event) {
 function removeEventsFromCalendar() {
   // ф-ция для удаления всех событий с календаря
   const oldEvents = document.querySelectorAll('.event');
-  oldEvents.forEach((elem) => (elem.outerHTML = ''));
+  oldEvents.forEach(elem => (elem.outerHTML = ''));
 }
 
-const createEventElement = (event) => {
+const createEventElement = event => {
   // ф-ция создает DOM элемент события
   // событие должно позиционироваться абсолютно внутри нужной ячейки времени внутри дня
   // нужно добавить id события в дата атрибут
@@ -30,11 +30,10 @@ const createEventElement = (event) => {
   newEvent.id = `${event.id}`;
   newEvent.dataset.event = 'event';
   newEvent.innerHTML = `<div class='event__title'>${event.title}</div>
-  <div class='event__time'>${event.start.getHours()}:${String(
-    event.start.getMinutes()
-  ).padStart(2, 0)} - ${event.end.getHours()}:${String(
-    event.end.getMinutes()
-  ).padStart(2, 0)}</div>
+  <div class='event__time'>${event.start.getHours()}:${String(event.start.getMinutes()).padStart(
+    2,
+    0,
+  )} - ${event.end.getHours()}:${String(event.end.getMinutes()).padStart(2, 0)}</div>
   <div class='event__description'>${event.description}</div>`;
   newEvent.style.top = `${event.start.getMinutes()}px`;
   return newEvent;
@@ -52,13 +51,10 @@ export const renderEvents = () => {
   removeEventsFromCalendar();
   const events = getItem('events');
   const monday = getItem('displayedWeekStart');
-  console.log(events);
   const arr = events.filter(
-    (elem) =>
-      elem.start >= monday &&
-      elem.start < shmoment(monday).add('days', 7).result()
+    elem => elem.start >= monday && elem.start < shmoment(monday).add('days', 7).result(),
   );
-  arr.forEach((elem) => {
+  arr.forEach(elem => {
     const day = document.querySelector(`[data-day="${elem.start.getDate()}"]`);
     const timeSlot = day.children[elem.start.getHours()];
     timeSlot.innerHTML = createEventElement(elem).outerHTML;
@@ -71,7 +67,7 @@ function onDeleteEvent() {
   // закрыть попап
   // перерисовать события на странице в соответствии с новым списком событий в storage (renderEvents)
   const events = getItem('events').filter(
-    (elem) => elem.id.toString() !== getItem('eventIdToDelete')
+    elem => elem.id.toString() !== getItem('eventIdToDelete'),
   );
   setItem('events', events);
   closePopup();

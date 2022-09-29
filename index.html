@@ -29,9 +29,7 @@
         <i class="fas fa-plus create-event-btn__icon"></i>Create
       </button>
       <div class="navigation">
-        <button data-direction="today" class="navigation__today-btn button">
-          Today
-        </button>
+        <button data-direction="today" class="navigation__today-btn button">Today</button>
         <button data-direction="prev" class="icon-button navigation__nav-icon">
           <i data-direction="prev" class="fas fa-chevron-left"></i>
         </button>
@@ -59,7 +57,7 @@
               type="text"
               name="title"
               placeholder="Add title"
-              class="event-form__field"
+              class="event-form__field event-form__title"
             />
             <div class="event-form__time">
               <input type="date" name="date" class="event-form__field" />
@@ -70,7 +68,7 @@
             <textarea
               name="description"
               placeholder="Add description"
-              class="event-form__field"
+              class="event-form__field event-form__description"
             ></textarea>
             <button type="submit" class="event-form__submit-btn">Create</button>
           </form>

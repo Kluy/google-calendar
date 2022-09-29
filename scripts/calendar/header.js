@@ -13,16 +13,13 @@ export const renderHeader = () => {
 
   const weekStart = getItem('displayedWeekStart');
   const weekHeader = generateWeekRange(weekStart)
-    .map((elem) => {
+    .map(elem => {
       return (elem = `<div class='calendar__day-start'><div class='calendar__day-name'>${
         daysOfWeek[elem.getDay()]
       }</div><div class='calendar__date'>${elem.getDate()}</div></div>`);
     })
     .join('');
-  const gmt = `<div class='calendar__gmt'>GMT+${(
-    (weekStart.getTimezoneOffset() / 60) *
-    -1
-  )
+  const gmt = `<div class='calendar__gmt'>GMT+${((weekStart.getTimezoneOffset() / 60) * -1)
     .toString()
     .padStart(2, 0)}</div>`;
 
