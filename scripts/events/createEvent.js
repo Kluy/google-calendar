@@ -29,7 +29,8 @@ function onCreateEvent(event) {
   // и запускаем перерисовку событий с помощью renderEvents
   event.preventDefault();
 
-  const events = getItem('events');
+  const events = getItem('events') || [];
+
   const newEvent = {
     id: Math.random(), // id понадобится для работы с событиями
   };

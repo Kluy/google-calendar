@@ -8,7 +8,7 @@ const deleteEventBtn = document.querySelector('.delete-event-btn');
 function handleEventClick(event) {
   // если произошел клик по событию, то нужно паказать попап с кнопкой удаления
   // установите eventIdToDelete с id события в storage
-  if (event.target.parentElement.id !== '' || event.target.id !== '') {
+  if (event.target.parentElement.id || event.target.id) {
     openPopup(event.x, event.y);
     setItem('eventIdToDelete', event.target.parentElement.id || event.target.id);
   }
@@ -49,16 +49,19 @@ export const renderEvents = () => {
   // не забудьте удалить с календаря старые события перед добавлением новых
 
   removeEventsFromCalendar();
-  const events = getItem('events');
   const monday = getItem('displayedWeekStart');
-  const arr = events.filter(
-    elem => elem.start >= monday && elem.start < shmoment(monday).add('days', 7).result(),
-  );
-  arr.forEach(elem => {
-    const day = document.querySelector(`[data-day="${elem.start.getDate()}"]`);
-    const timeSlot = day.children[elem.start.getHours()];
-    timeSlot.innerHTML = createEventElement(elem).outerHTML;
-  });
+  getItem('events')
+    .map(elem => {
+      elem.start = new Date(elem.start);
+      elem.end = new Date(elem.end);
+      return elem;
+    })
+    .filter(elem => elem.start >= monday && elem.start < shmoment(monday).add('days', 7).result())
+    .forEach(elem => {
+      const day = document.querySelector(`[data-day="${elem.start.getDate()}"]`);
+      const timeSlot = day.children[elem.start.getHours()];
+      timeSlot.innerHTML = createEventElement(elem).outerHTML;
+    });
 };
 
 function onDeleteEvent() {

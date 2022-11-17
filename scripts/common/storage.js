@@ -10,12 +10,20 @@ let storage = {
 
 export const setItem = (key, value) => {
   // ф-ция должна устанавливать значения в объект storage
-  storage[key] = value;
+  // storage[key] = value;
+
+  localStorage.setItem(key, JSON.stringify(value));
 };
 
 export const getItem = key => {
   // ф-ция должна возвращать по ключу значения из объекта storage
-  return storage[key];
+
+  const responce = JSON.parse(localStorage.getItem(key));
+
+  if (key === 'displayedWeekStart') return new Date(JSON.parse(localStorage.getItem(key)));
+
+  return responce;
+  // return storage[key];
 };
 
 // пример объекта события

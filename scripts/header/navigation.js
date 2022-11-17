@@ -19,11 +19,14 @@ const onChangeWeek = event => {
   // при переключении недели обновите displayedWeekStart в storage
   // и перерисуйте все необходимые элементы страницы (renderHeader, renderWeek, renderCurrentMonth)
   const direction = event.target.dataset.direction;
+
+  const displayedWeekStart = getItem('displayedWeekStart');
+
   let date;
   if (direction === 'next') {
-    date = shmoment(getItem('displayedWeekStart').getTime()).add('days', 7).result();
+    date = shmoment(displayedWeekStart.getTime()).add('days', 7).result();
   } else if (direction === 'prev') {
-    date = shmoment(getItem('displayedWeekStart').getTime()).subtract('days', 7).result();
+    date = shmoment(displayedWeekStart.getTime()).subtract('days', 7).result();
   } else if (direction === 'today') {
     date = new Date();
   } else {
