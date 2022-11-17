@@ -6,6 +6,7 @@ let storage = {
   // хранит массив всех событий
   events: [],
   // это все данные, которые вам нужно хранить для работы приложения
+  eventsColor: '#c6dafc',
 };
 
 export const setItem = (key, value) => {
