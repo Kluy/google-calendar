@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const onStorageChange = event => {
-  console.log(event);
   if (event.key === 'events' || event.key == 'displayedWeekStart') {
     renderHeader();
     renderWeek();

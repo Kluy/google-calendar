@@ -4,6 +4,14 @@ import { getDateTime } from '../common/time.utils.js';
 import { closeModal } from '../common/modal.js';
 
 const eventFormElem = document.querySelector('.event-form');
+
+export function setDateInModal() {
+  const currentDay = new Date();
+  eventFormElem.date.value = `${currentDay.getFullYear()}-${
+    currentDay.getMonth() + 1
+  }-${currentDay.getDate()}`;
+}
+
 const closeEventFormBtn = document.querySelector('.create-event__close-btn');
 
 function clearEventForm() {
