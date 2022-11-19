@@ -26,9 +26,14 @@
     flex-direction: column;
     text-align: center;
   }
+
   &__day-name {
     font-size: 11px;
     text-transform: uppercase;
+    &_current {
+      font-weight: 900;
+      color: $blue;
+    }
   }
   &__date {
     margin-top: 5px;
@@ -38,6 +43,10 @@
     line-height: 45px;
     vertical-align: middle;
     border-radius: 100%;
+    &_current {
+      background-color: $blue;
+      color: $white;
+    }
   }
   &__week {
     display: flex;

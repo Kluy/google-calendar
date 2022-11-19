@@ -113,6 +113,10 @@ button {
   font-size: 11px;
   text-transform: uppercase;
 }
+.calendar__day-name_current {
+  font-weight: 900;
+  color: #1a73e8;
+}
 .calendar__date {
   margin-top: 5px;
   width: 45px;
@@ -121,6 +125,10 @@ button {
   line-height: 45px;
   vertical-align: middle;
   border-radius: 100%;
+}
+.calendar__date_current {
+  background-color: #1a73e8;
+  color: #fff;
 }
 .calendar__week {
   display: flex;
