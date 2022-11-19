@@ -50,7 +50,8 @@ export const renderEvents = () => {
 
   removeEventsFromCalendar();
   const monday = getItem('displayedWeekStart');
-  getItem('events')
+  const events = getItem('events') || [];
+  events
     .map(elem => {
       elem.start = new Date(elem.start);
       elem.end = new Date(elem.end);
