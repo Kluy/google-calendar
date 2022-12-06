@@ -15,11 +15,18 @@ export const renderHeader = () => {
 
   const weekHeader = generateWeekRange(weekStart)
     .map(elem => {
-      return (elem = `<div class='calendar__day-start'><div class='calendar__day-name'>
-          ${daysOfWeek[elem.getDay()]}
-        </div><div class='calendar__date'>
-          ${elem.getDate()}
-        </div></div>`);
+      return `<div class='calendar__day-start'>
+                <div class='calendar__day-name${
+                  elem.getDate() === new Date().getDate() ? ' calendar__day-name_current' : ''
+                }'>
+                    ${daysOfWeek[elem.getDay()]}
+                </div>
+                <div class='calendar__date${
+                  elem.getDate() === new Date().getDate() ? ' calendar__date_current' : ''
+                }'>
+                    ${elem.getDate()}
+                </div>
+              </div>`;
     })
     .join('');
 

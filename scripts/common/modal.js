@@ -1,3 +1,5 @@
+import { setDateInModal } from '../events/createEvent.js';
+
 const modalElem = document.querySelector('.modal');
 const modalContentElem = document.querySelector('.modal__content');
 
@@ -7,6 +9,7 @@ const modalContentElem = document.querySelector('.modal__content');
 
 export function openModal() {
   modalElem.classList.toggle('hidden');
+  setDateInModal();
 }
 
 export function closeModal() {
