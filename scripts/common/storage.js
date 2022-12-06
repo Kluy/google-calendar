@@ -6,23 +6,22 @@ let storage = {
   // хранит массив всех событий
   events: [],
   // это все данные, которые вам нужно хранить для работы приложения
+  eventsColor: '#c6dafc',
 };
 
 export const setItem = (key, value) => {
   // ф-ция должна устанавливать значения в объект storage
   // storage[key] = value;
-
   localStorage.setItem(key, JSON.stringify(value));
 };
 
 export const getItem = key => {
   // ф-ция должна возвращать по ключу значения из объекта storage
 
-  const responce = JSON.parse(localStorage.getItem(key));
-
+  const response = JSON.parse(localStorage.getItem(key));
   if (key === 'displayedWeekStart') return new Date(JSON.parse(localStorage.getItem(key)));
+  return response;
 
-  return responce;
   // return storage[key];
 };
 
