@@ -31,3 +31,8 @@ export const fetchData = () =>
   fetch(`${baseUrl}`).then(response => {
     if (response.ok) return response.json();
   });
+
+export const fetchEvent = eventId =>
+  fetch(`${baseUrl}${eventId}`).then(response => {
+    if (response.ok) return response.json();
+  });
