@@ -76,7 +76,29 @@
     <div class="popup hidden overlay">
       <div class="popup__overlay"></div>
       <div class="popup__content">
-        <button class="delete-event-btn">Delete</button>
+        <form class="event-form">
+          <input
+            type="text"
+            name="title"
+            placeholder="Add title"
+            class="event-form__field event-form__title"
+          />
+          <div class="event-form__time">
+            <input type="date" name="date" class="event-form__field" />
+            <input type="time" name="start" class="event-form__field" />
+            <span>-</span>
+            <input type="time" name="end" class="event-form__field" />
+          </div>
+          <textarea
+            name="description"
+            placeholder="Add description"
+            class="event-form__field event-form__description"
+          ></textarea>
+          <button type="submit" class="event-form__submit-btn">Update</button>
+        </form>
+        <button class="icon-button delete-event-btn">
+          <i class="fa-sharp fa-solid fa-trash"></i>
+        </button>
       </div>
     </div>
     <script src="scripts/index.js" type="module"></script>

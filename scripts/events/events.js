@@ -1,7 +1,7 @@
 import { getItem, setItem } from '../common/storage.js';
 import shmoment from '../common/shmoment.js';
 import { openPopup, closePopup } from '../common/popup.js';
-import { fetchData } from '../common/gateway.js';
+import { deleteEvent, fetchData } from '../common/gateway.js';
 
 const weekElem = document.querySelector('.calendar__week');
 const deleteEventBtn = document.querySelector('.delete-event-btn');
@@ -74,12 +74,15 @@ function onDeleteEvent() {
   // удаляем из массива нужное событие и записываем в storage новый массив
   // закрыть попап
   // перерисовать события на странице в соответствии с новым списком событий в storage (renderEvents)
-  const events = getItem('events').filter(
-    elem => elem.id.toString() !== getItem('eventIdToDelete'),
-  );
-  setItem('events', events);
-  closePopup();
-  renderEvents();
+  // const events = getItem('events').filter(
+  //   elem => elem.id.toString() !== getItem('eventIdToDelete'),
+  // );
+  // setItem('events', events);
+
+  deleteEvent(getItem('eventIdToDelete')).then(result => {
+    closePopup();
+    renderEvents();
+  });
 }
 
 deleteEventBtn.addEventListener('click', onDeleteEvent);

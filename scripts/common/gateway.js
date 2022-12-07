@@ -1,6 +1,6 @@
-const baseUrl = 'https://6390e3db0bf398c73a95f78a.mockapi.io/calendar/events';
+const baseUrl = 'https://6390e3db0bf398c73a95f78a.mockapi.io/calendar/events/';
 
-export const updateTask = (taskId, updatedTask) =>
+export const updateEvent = (taskId, updatedTask) =>
   fetch(`${baseUrl}${taskId}`, {
     method: 'PUT',
     headers: {
@@ -22,7 +22,7 @@ export const createEvent = newEvent =>
     if (!response.ok) throw new Error('Task didn"t created');
   });
 
-export const deleteTask = taskId =>
+export const deleteEvent = taskId =>
   fetch(`${baseUrl}${taskId}`, { method: 'DELETE' }).then(response => {
     if (!response.ok) throw new Error('Task didn"t deleted');
   });

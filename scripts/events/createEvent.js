@@ -8,9 +8,9 @@ const eventFormElem = document.querySelector('.event-form');
 
 export function setDateInModal() {
   const currentDay = new Date();
-  eventFormElem.date.value = `${currentDay.getFullYear()}-${
-    currentDay.getMonth() + 1
-  }-${currentDay.getDate()}`;
+  eventFormElem.date.value = `${currentDay.getFullYear()}-${currentDay.getMonth() + 1}-${String(
+    currentDay.getDate(),
+  ).padStart(2, 0)}`;
 }
 
 const closeEventFormBtn = document.querySelector('.create-event__close-btn');
@@ -36,7 +36,7 @@ function onCreateEvent(event) {
   // полученное событие добавляем в массив событий, что хранится в storage
   // закрываем форму
   // и запускаем перерисовку событий с помощью renderEvents
-  event.preventDefault();
+  // event.preventDefault();
 
   // const events = getItem('events') || [];
 
