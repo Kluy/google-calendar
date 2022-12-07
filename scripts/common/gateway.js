@@ -1,4 +1,4 @@
-const baseUrl = 'https://6390e3db0bf398c73a95f78a.mockapi.io/calendar/events/';
+const baseUrl = 'https://6390e3db0bf398c73a95f78a.mockapi.io/calendar/events';
 
 export const updateTask = (taskId, updatedTask) =>
   fetch(`${baseUrl}${taskId}`, {
@@ -11,13 +11,13 @@ export const updateTask = (taskId, updatedTask) =>
     if (!response.ok) throw new Error('Task didn"t updated');
   });
 
-export const createTask = newTask =>
+export const createEvent = newEvent =>
   fetch(`${baseUrl}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
     },
-    body: JSON.stringify(newTask),
+    body: JSON.stringify(newEvent),
   }).then(response => {
     if (!response.ok) throw new Error('Task didn"t created');
   });

@@ -1,6 +1,7 @@
 import { getItem, setItem } from '../common/storage.js';
 import shmoment from '../common/shmoment.js';
 import { openPopup, closePopup } from '../common/popup.js';
+import { fetchData } from '../common/gateway.js';
 
 const weekElem = document.querySelector('.calendar__week');
 const deleteEventBtn = document.querySelector('.delete-event-btn');
@@ -49,20 +50,23 @@ export const renderEvents = () => {
   // не забудьте удалить с календаря старые события перед добавлением новых
 
   removeEventsFromCalendar();
+
   const monday = getItem('displayedWeekStart');
-  const events = getItem('events') || [];
-  events
-    .map(elem => {
-      elem.start = new Date(elem.start);
-      elem.end = new Date(elem.end);
-      return elem;
-    })
-    .filter(elem => elem.start >= monday && elem.start < shmoment(monday).add('days', 7).result())
-    .forEach(elem => {
-      const day = document.querySelector(`[data-day="${elem.start.getDate()}"]`);
-      const timeSlot = day.children[elem.start.getHours()];
-      timeSlot.innerHTML = createEventElement(elem).outerHTML;
-    });
+  // const events = getItem('events') || [];
+  fetchData().then(result =>
+    result
+      .map(elem => {
+        elem.start = new Date(elem.start);
+        elem.end = new Date(elem.end);
+        return elem;
+      })
+      .filter(elem => elem.start >= monday && elem.start < shmoment(monday).add('days', 7).result())
+      .forEach(elem => {
+        const day = document.querySelector(`[data-day="${elem.start.getDate()}"]`);
+        const timeSlot = day.children[elem.start.getHours()];
+        timeSlot.innerHTML = createEventElement(elem).outerHTML;
+      }),
+  );
 };
 
 function onDeleteEvent() {
