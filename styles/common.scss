@@ -6,20 +6,20 @@
   border-radius: 8px;
   border: 1px solid $alsoWhite;
 }
+
 .icon-button {
   margin: 0 25px;
   padding: 2px;
   border: none;
   cursor: pointer;
 }
-.settings-button {
-  margin-left: 60%;
-}
+
 .modal {
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
+
   &__content {
     padding: 16px;
     background: $white;
@@ -27,6 +27,7 @@
     border-radius: 8px;
   }
 }
+
 .overlay {
   width: 100vw;
   height: 100vh;
@@ -36,6 +37,7 @@
   z-index: 10;
   background-color: #cccccc45;
 }
+
 .popup {
   &__content {
     padding: 16px;
@@ -45,6 +47,7 @@
     border-radius: 8px;
   }
 }
+
 .hidden {
   display: none;
 }

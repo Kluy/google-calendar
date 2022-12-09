@@ -1,11 +1,10 @@
 import { getItem, setItem } from '../common/storage.js';
 import shmoment from '../common/shmoment.js';
 import { openPopup, closePopup } from '../common/popup.js';
-import { deleteEvent, fetchData, fetchEvent } from '../common/gateway.js';
+import { deleteEvent, fetchData } from '../common/gateway.js';
 
 const weekElem = document.querySelector('.calendar__week');
 const deleteEventBtn = document.querySelector('.delete-event-btn');
-const updateEventFormElem = document.querySelector('.update-event-form');
 
 function handleEventClick(event) {
   // если произошел клик по событию, то нужно паказать попап с кнопкой удаления
@@ -13,27 +12,7 @@ function handleEventClick(event) {
   const eventId = event.target.parentElement.id || event.target.id;
   if (eventId) {
     openPopup(event.x, event.y);
-
-    fetchEvent(eventId).then(result => {
-      const eventDate = new Date(result.start);
-
-      updateEventFormElem.date.value = `${eventDate.getFullYear()}-${
-        eventDate.getMonth() + 1
-      }-${String(eventDate.getDate()).padStart(2, 0)}`;
-
-      updateEventFormElem.start.value = `${String(eventDate.getHours()).padStart(2, 0)}:${String(
-        eventDate.getMinutes(),
-      ).padStart(2, 0)}`;
-
-      updateEventFormElem.end.value = `${String(new Date(result.end).getHours()).padStart(
-        2,
-        0,
-      )}:${String(new Date(result.end).getMinutes()).padStart(2, 0)}`;
-
-      updateEventFormElem.title.value = result.title;
-      updateEventFormElem.description.value = result.description;
-    });
-    setItem('eventIdToDelete', event.target.parentElement.id || event.target.id);
+    setItem('eventIdToDelete', eventId);
   }
 }
 
@@ -101,7 +80,7 @@ function onDeleteEvent() {
   // );
   // setItem('events', events);
 
-  deleteEvent(getItem('eventIdToDelete')).then(result => {
+  deleteEvent(getItem('eventIdToDelete')).then(() => {
     closePopup();
     renderEvents();
   });

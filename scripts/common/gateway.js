@@ -7,32 +7,32 @@ export const updateEvent = (taskId, updatedTask) =>
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(updatedTask),
-  }).then(response => {
-    if (!response.ok) throw new Error('Task didn"t updated');
-  });
+  })
+    .then(response => response.json())
+    .catch(() => alert('Internal Server Error'));
 
-export const createEvent = newEvent =>
+export const postEvent = newEvent =>
   fetch(`${baseUrl}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(newEvent),
-  }).then(response => {
-    if (!response.ok) throw new Error('Task didn"t created');
-  });
+  })
+    .then(response => response.json())
+    .catch(() => alert('Internal Server Error'));
 
 export const deleteEvent = taskId =>
-  fetch(`${baseUrl}${taskId}`, { method: 'DELETE' }).then(response => {
-    if (!response.ok) throw new Error('Task didn"t deleted');
-  });
+  fetch(`${baseUrl}${taskId}`, { method: 'DELETE' })
+    .then(response => response.json())
+    .catch(() => alert('Internal Server Error'));
 
 export const fetchData = () =>
-  fetch(`${baseUrl}`).then(response => {
-    if (response.ok) return response.json();
-  });
+  fetch(`${baseUrl}`)
+    .then(response => response.json())
+    .catch(error => alert('Internal Server Error'));
 
 export const fetchEvent = eventId =>
-  fetch(`${baseUrl}${eventId}`).then(response => {
-    if (response.ok) return response.json();
-  });
+  fetch(`${baseUrl}${eventId}`)
+    .then(response => response.json())
+    .catch(() => alert('Internal Server Error'));

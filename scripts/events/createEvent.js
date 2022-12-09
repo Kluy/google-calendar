@@ -2,17 +2,9 @@ import { getItem, setItem } from '../common/storage.js';
 import { renderEvents } from './events.js';
 import { getDateTime } from '../common/time.utils.js';
 import { closeModal } from '../common/modal.js';
-import { createEvent } from '../common/gateway.js';
+import { postEvent } from '../common/gateway.js';
 
 const eventFormElem = document.querySelector('.event-form');
-
-export function setDateInModal() {
-  const currentDay = new Date();
-  eventFormElem.date.value = `${currentDay.getFullYear()}-${currentDay.getMonth() + 1}-${String(
-    currentDay.getDate(),
-  ).padStart(2, 0)}`;
-}
-
 const closeEventFormBtn = document.querySelector('.create-event__close-btn');
 
 function clearEventForm() {
@@ -36,13 +28,7 @@ function onCreateEvent(event) {
   // полученное событие добавляем в массив событий, что хранится в storage
   // закрываем форму
   // и запускаем перерисовку событий с помощью renderEvents
-  // event.preventDefault();
-
-  // const events = getItem('events') || [];
-
-  const newEvent = {
-    // id: Math.random(), // id понадобится для работы с событиями
-  };
+  const newEvent = {};
 
   const formData = [...new FormData(eventFormElem)];
 
@@ -57,9 +43,7 @@ function onCreateEvent(event) {
   delete newEvent.date;
 
   if (event.target.type === 'submit') {
-    // events.push(newEvent);
-    // setItem('events', events);
-    createEvent(newEvent).then(result => {
+    postEvent(newEvent).then(result => {
       onCloseEventForm();
       renderEvents();
     });

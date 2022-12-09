@@ -4,25 +4,22 @@ let storage = {
   // хранит дату понедельника той отображаемой недели
   displayedWeekStart: null,
   // хранит массив всех событий
-  events: [],
-  // это все данные, которые вам нужно хранить для работы приложения
-  eventsColor: '#c6dafc',
 };
 
 export const setItem = (key, value) => {
   // ф-ция должна устанавливать значения в объект storage
-  // storage[key] = value;
-  localStorage.setItem(key, JSON.stringify(value));
+  storage[key] = value;
+
+  // localStorage.setItem(key, JSON.stringify(value));
 };
 
 export const getItem = key => {
   // ф-ция должна возвращать по ключу значения из объекта storage
+  return storage[key];
 
-  const response = JSON.parse(localStorage.getItem(key));
-  if (key === 'displayedWeekStart') return new Date(JSON.parse(localStorage.getItem(key)));
-  return response;
-
-  // return storage[key];
+  // const response = JSON.parse(localStorage.getItem(key));
+  // if (key === 'displayedWeekStart') return new Date(JSON.parse(localStorage.getItem(key)));
+  // return response;
 };
 
 // пример объекта события

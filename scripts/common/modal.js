@@ -1,5 +1,3 @@
-import { setDateInModal } from '../events/createEvent.js';
-
 const modalElem = document.querySelector('.modal');
 const modalContentElem = document.querySelector('.modal__content');
 
@@ -8,10 +6,9 @@ const modalContentElem = document.querySelector('.modal__content');
 // отличие в том, что попап отображается в месте клика, а модальное окно - по центру экрана
 
 export function openModal() {
-  modalElem.classList.toggle('hidden');
-  setDateInModal();
+  modalElem.classList.remove('hidden');
 }
 
 export function closeModal() {
-  modalElem.classList.toggle('hidden');
+  modalElem.classList.add('hidden');
 }

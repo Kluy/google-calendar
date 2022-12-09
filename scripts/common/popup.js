@@ -8,8 +8,6 @@ export function openPopup(x, y) {
   popupContentElem.style.left = `${x}px`;
 }
 
-function setEventValues() {}
-
 export function closePopup() {
   popupElem.classList.add('hidden');
 }
