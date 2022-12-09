@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initEventForm();
 });
 
-const onStorageChange = event => {
-  if (event.key === 'events' || event.key == 'displayedWeekStart') {
-    renderHeader();
-    renderWeek();
-    renderEvents();
-  } else return;
-};
+// const onStorageChange = event => {
+//   if (event.key === 'events' || event.key == 'displayedWeekStart') {
+//     renderHeader();
+//     renderWeek();
+//     renderEvents();
+//   } else return;
+// };
 
-window.addEventListener('storage', onStorageChange);
+// window.addEventListener('storage', onStorageChange);
