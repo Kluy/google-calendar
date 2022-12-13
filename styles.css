@@ -1,5 +1,4 @@
 .page {
-  width: 1345px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -102,7 +101,7 @@ button {
   text-align: right;
 }
 .calendar__day-start {
-  width: 180px;
+  flex-grow: 1;
   height: 60px;
   display: flex;
   align-items: center;
@@ -131,13 +130,16 @@ button {
   color: #fff;
 }
 .calendar__week {
+  width: 100vw;
   display: flex;
+}
+.calendar__day {
+  flex-grow: 1;
 }
 .calendar__day:last-child {
   border-right: 1px solid #dadce0;
 }
 .calendar__time-slot {
-  width: 180px;
   height: 60px;
   position: relative;
   border-top: 1px solid #dadce0;
@@ -212,6 +214,9 @@ button {
 }
 .event__time {
   padding: 8px 0;
+}
+.event__delete-icon {
+  padding-right: 12px;
 }
 
 * {

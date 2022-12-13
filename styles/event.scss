@@ -8,10 +8,16 @@
   color: #727e90;
   border-radius: 7px;
   background-color: #c6dafc;
+
   &__title {
     font-weight: 700;
   }
+
   &__time {
     padding: 8px 0;
+  }
+
+  &__delete-icon {
+    padding-right: 12px;
   }
 }

@@ -4,7 +4,7 @@ import { openPopup, closePopup } from '../common/popup.js';
 import { deleteEvent, fetchData } from '../common/gateway.js';
 
 const weekElem = document.querySelector('.calendar__week');
-const deleteEventBtn = document.querySelector('.delete-event-btn');
+const deleteEventBtn = document.querySelector('.event__delete-btn');
 
 function handleEventClick(event) {
   // если произошел клик по событию, то нужно паказать попап с кнопкой удаления
