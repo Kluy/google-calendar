@@ -30,7 +30,7 @@ export const deleteEvent = taskId =>
 export const fetchData = () =>
   fetch(`${baseUrl}`)
     .then(response => response.json())
-    .catch(error => alert('Internal Server Error'));
+    .catch(() => alert('Internal Server Error'));
 
 export const fetchEvent = eventId =>
   fetch(`${baseUrl}${eventId}`)
