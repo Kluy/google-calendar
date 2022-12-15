@@ -3,7 +3,6 @@ let storage = {
   eventIdToDelete: null,
   // хранит дату понедельника той отображаемой недели
   displayedWeekStart: null,
-  // хранит массив всех событий
 };
 
 export const setItem = (key, value) => {
